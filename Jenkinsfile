@@ -2,49 +2,17 @@ pipeline{
     agent none
     
     stages{
-        stage("Build")
+        stage("Regression Automation Tests")
         {
             steps
             {
-                echo("build the project")
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE')
+                {
+    				git 'https://github.com/HemantDhavle/CucumberWorkingProject.git'
+    				sh "mvn clean install"	
+    
+				}
             }
         }
-        stage("UnitTesting")
-        {
-            steps
-            {
-                echo("Do the unit testing")
-            }
-        }
-        stage("SIT")
-        {
-            steps
-            {
-                echo("Perform SIT")
-            }
-        }
-        
-         stage("UAT")
-        {
-            steps
-            {
-                echo("Perform UAT")
-            }
-        }
-        
-         stage("Prod Release")
-        {
-            steps
-            {
-                echo("Release the build on production")
-            }
-        }
-         stage("Prod1 Release")
-        {
-            steps
-            {
-                echo("Release the build on production")
-            }
-        }
-    }
-}
+       }
+     }
