@@ -1,5 +1,9 @@
 pipeline{
-    agent none
+    agent any
+    tools
+    {
+    	maven 'maven'
+    }
     
     stages{
         stage("Regression Automation Tests")
