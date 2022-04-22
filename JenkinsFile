@@ -39,5 +39,12 @@ pipeline{
                 echo("Release the build on production")
             }
         }
+         stage("Prod1 Release")
+        {
+            steps
+            {
+                echo("Release the build on production")
+            }
+        }
     }
 }
