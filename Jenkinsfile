@@ -12,7 +12,7 @@ pipeline{
             {
                 
     				git 'https://github.com/HemantDhavle/CucumberWorkingProject.git'
-    				sh "mvn clean install"	
+    				bat "mvn clean install"	
     
 				}
             
